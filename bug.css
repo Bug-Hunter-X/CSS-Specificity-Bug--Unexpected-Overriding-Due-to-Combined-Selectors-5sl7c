@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+.container {
+  width: 100%;
+}
+
+#id .container {
+  width: 50%;
+}
+
+.container.special {
+  width: 75%;
+}
+
+.container.special #id {
+  width: 25%;
+}
+```
+
+In this example, the selectors with higher specificity will override the more general selectors. This can lead to unexpected results if the developer doesn't carefully consider the cascading order. In particular, the last rule's specificity is higher than expected due to the ID selector and the context of the class selector, potentially overriding the intent.
